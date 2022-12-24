@@ -20,6 +20,7 @@ textarea, textarea: focus{
 	font-size: 60px;
 	border-width: 0px;
 	resize: none;
+	outline: 0 none;
 
 }
 
