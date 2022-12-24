@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+Address:<br>
+<textarea id="myTextarea">
+342 Alvin Road
+Ducksburg</textarea>
+
+<p>Click the button to alert the contents of the text area.</p>
+
+<button type="button" onclick="myFunction()">Encriptar</button>
+<button type="button" onclick="myFunction2()">Desencriptar</button>
+
+<p id="demo"></p>
+
+<script>
+
+function myFunction() {
+
+	function encriptar(text){
+
+			
+
+		let vocala = /a/gi;
+        let vocale = /e/gi;
+        let vocali = /i/gi;
+        let vocalo = /o/gi;
+        let vocalu = /u/gi;
+        
+        const newstr = text.replace(vocala, "ai").replace(vocalu,"ufat").replace(vocalo,"outro").replace(vocale,"enter").replace(vocali,"immes");
+        
+       
+		return newstr;
+		
+
+	}
+    
+
+	
+  var x = document.getElementById("myTextarea").value;
+  enc = encriptar(x);
+  document.getElementById("demo").innerHTML = enc;
+}
+
+function myFunction2(){
+
+	function desencriptar(text){
+
+			
+
+		let vocala = /ai/gi;
+        let vocale = /enter/gi;
+        let vocali = /immes/gi;
+        let vocalo = /outro/gi;
+        let vocalu = /ufat/gi;
+        const newstr = text.replace(vocala, "a").replace(vocalu,"u").replace(vocalo,"o").replace(vocale,"e").replace(vocali,"i");
+		
+        
+       
+		return newstr;
+		
+
+	}
+
+
+  var x = document.getElementById("myTextarea").value;
+  denc = desencriptar(x);
+  document.getElementById("demo").innerHTML = denc;
+}
+
+</script>
+
+
+</body>
+</html>

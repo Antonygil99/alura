@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+
+html, body, input, button, textarea{
+	font-family: 'DM Sans', sans-serif;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	height: 100%;
+}
+
+header{
+	position: absolute;
+	padding-bottom: 150px;
+}
+
+footer{
+
+}
+
+textarea{
+	font-size: 60px;
+	border-width: 0px;
+	resize: none;
+
+}
+
+li{
+	padding: .5em;
+}
+
+.btn{
+	justify-content: center;
+	margin: 0px 0px 0px 0px;
+	width: 35rem;
+	height: 3rem;
+	border-radius: 1rem;
+}
+
+.btn-important{
+	color: white;
+	background-color: blue;
+	border-color: transparent;
+}
+.btn-second{
+
+	background-color: whitesmoke;
+	border-color: blue;
+}
+
+ul,h4 {
+
+  display: flex;
+  list-style: none;
+  justify-content: center;
+
+}
+
+.container,h4{
+	color: white;
+	background-color: blue;
+}
+
+h4{
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+}
+
+.father{
+	display: grid;
+	grid-template-columns: 2fr 2fr;
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #111;
+    height: auto;
+    width: 100vw;
+    padding-top: 40px;
+    color: #fff;
+}
+
+#salida{
+	color: white;
+	margin: 2rem;
+	padding: 3rem;
+	height: 23rem;
+	background-color: blue;
+	border-radius: 2rem;
+	box-shadow: -13px 18px 10px -6px rgba(0, 0, 0, 0.25);
+}
+
+
+
+
+
+
+.p-1{
+	padding: 1rem;
+}
+.p-2{
+	padding: 2rem;
+}
+.p-3{
+	padding: 4rem;
+}
+.p-4{
+	padding: 8rem;
+}
+
+@media (max-width:500px) {
+.footer-menu ul{
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+}

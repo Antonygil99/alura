@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Encriptador de Texto</title>
+
+	<link rel="stylesheet" type="text/css" href="stylesheet.css">
+
+	<style>
+		#myDIV {
+  			width: 500px;
+  			height: 500px;
+  			background-color: lightblue;
+		}
+	</style>
+
+</head>
+<body>
+
+
+	<header>
+		<img src="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco,dpr_1/dibk1ba07iflqhldupuz"
+		style="
+			width: 60px;
+			padding-left: 2rem;
+
+		" 	
+		>
+	</header>
+<div class="father">
+	<div class="p-2">
+		<h1 class="p-2">
+			<textarea 
+				id="myTextarea" 
+				autocomplete="on"
+				wrap="soft">Escribe tu mensaje
+			</textarea>
+
+		</h1>
+
+
+		<div class="row p-1">
+
+			<button type="button" onclick="myFunction()" class="btn btn-important">Encriptar</button>
+			
+		</div>
+
+		<div class="row p-1">
+
+			<button type="button" onclick="myFunction2()" class="btn btn-second">Desencriptar</button>
+			
+		</div>
+
+		<div class="row p-1"><svg 
+			xmlns="http://www.w3.org/2000/svg" 
+			width="16" 
+			height="16" 
+			fill="currentColor" 
+			class="bi bi-exclamation-circle-fill" 
+			viewBox="0 0 16 16">
+  			<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+		</svg> Solo se aceptan letras minúsculas y sin acentos
+		</div>
+
+
+	</div>
+	<div class="p-2" id="salida">
+
+	 <p id="demo"></p>
+		
+	</div>
+</div>
+
+
+	<footer class="container">
+
+		<ul class="p-1">
+			<li>Facebook</li>
+			<li>Instagram</li>
+			<li>Linkedin</li>
+
+		</ul>
+		<h4 class="p-1">By Antonio Gil</h4>
+	</footer>
+
+<script>
+
+//Encriptar
+function myFunction() {
+
+	function encriptar(text){
+
+
+			
+			//realizo el mapeo mediante un objeto a cada vocal con su respectivo cambio
+			var mapObj = {
+   			a:"ai",
+   			e:"enter",
+   			i:"immes",
+   			o:"outro",
+   			u:"ufat"
+
+			};
+
+			//utilizo el método replace para hacer uso de las expresiones regulares a e i o u y que sustituya todas las variables con g.
+			//la funcion recibe cada uno de los elementos del objeto anteriormente definido y cuando se alcance una letra definida en replace, esta letra será retornada para ser sustituida por replace.
+			text = text.replace(/a|e|i|o|u/g, function(matched){
+  		return mapObj[matched];
+			});
+
+			return text;
+		
+
+	}
+    
+
+	//tomamos los datos que se reciban en una etiqueta de html previamente identificada con el metodo getElementById y asignamos ese valor con el metodo value a una variable que definamos como "x"
+  var x = document.getElementById("myTextarea").value;
+  //asignamos el retorno de la función encriptar a una variable llamada "enc"
+  var enc = encriptar(x);
+  //Y finalmente mostramos el contenido del retorno de la función encriptar en una etiqueta con fuente html identificada con la id demo
+  document.getElementById("demo").innerHTML = enc;
+}
+
+//Desencriptar
+function myFunction2(){
+
+	function desencriptar(text){
+
+			
+
+				let vocala = /ai/gi;
+        let vocale = /enter/gi;
+        let vocali = /immes/gi;
+        let vocalo = /outro/gi;
+        let vocalu = /ufat/gi;
+        const newstr = text.replace(vocala, "a")
+        .replace(vocalu,"u")
+        .replace(vocalo,"o")
+        .replace(vocale,"e")
+        .replace(vocali,"i");
+		
+        
+       
+		return newstr;
+		
+
+	}
+
+
+  var x = document.getElementById("myTextarea").value;
+  denc = desencriptar(x);
+  document.getElementById("demo").innerHTML = denc;
+}
+
+</script>
+
+</body>
+</html>
