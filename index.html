@@ -34,7 +34,10 @@
 			<textarea 
 				id="myTextarea" 
 				autocomplete="on"
-				wrap="soft">Escribe tu mensaje
+				wrap="soft"
+				maxlength="350" 
+				>Escribe tu mensaje
+
 			</textarea>
 
 		</h1>
@@ -42,13 +45,13 @@
 
 		<div class="row p-1">
 
-			<button type="button" onclick="myFunction()" class="btn btn-important">Encriptar</button>
+			<button type="button" onclick="encriptar()" class="btn btn-important">Encriptar</button>
 			
 		</div>
 
 		<div class="row p-1">
 
-			<button type="button" onclick="myFunction2()" class="btn btn-second">Desencriptar</button>
+			<button type="button" onclick="desencriptar()" class="btn btn-second">Desencriptar</button>
 			
 		</div>
 
@@ -69,14 +72,16 @@
 	<!-- CUADRO DE SALIDA -->	
 	<div class="p-2" id="salida">
 
-	 <p id="demo"></p>
-	 <button type="button" onclick="copy()" class="circle">
-	 	<svg xmlns="http://www.w3.org/2000/svg" 
-	 	width="16" 
-	 	height="16" 
-	 	fill="currentColor" 
-	 	class="bi bi-clipboard" 
-	 	viewBox="0 0 16 16">
+	 <p id="demo">
+	 	<h3 class="text-center" id="titulo-in">Ningun mensaje fue encontrado</h3>
+	 	<p class="text-center" id="frase-in">Ingresa el texto que desees encriptar o desencriptar</p></p>
+	 	<button type="button" onclick="copy()" class="circle">
+	 		<svg xmlns="http://www.w3.org/2000/svg" 
+	 			width="16" 
+	 			height="16" 
+	 			fill="currentColor" 
+	 			class="bi bi-clipboard" 
+	 			viewBox="0 0 16 16">
 
   			<path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"></path>
   			<path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"></path>
@@ -87,6 +92,7 @@
 	</div>
 </div>
 
+	<!-- Footer 
 
 	<footer class="container">
 
@@ -99,13 +105,31 @@
 		<h4 class="p-1">By Antonio Gil</h4>
 	</footer>
 
+	-->
+
+
 <script>
 //HOLA MUNDO
+
+function encriptar(){
+	demoDisplay();
+    myFunction();
+}
+
+function desencriptar(){
+	demoDisplay();
+    myFunction2();
+}
+
+function demoDisplay() {
+  document.getElementById("frase-in").style.display = "none";
+  document.getElementById("titulo-in").style.display = "none";
+}
 
 //Encriptar
 function myFunction() {
 
-	function encriptar(text){
+	function encript(text){
 
 
 			
@@ -122,7 +146,7 @@ function myFunction() {
 			//utilizo el método replace para hacer uso de las expresiones regulares a e i o u y que sustituya todas las variables con g.
 			//la funcion recibe cada uno de los elementos del objeto anteriormente definido y cuando se alcance una letra definida en replace, esta letra será retornada para ser sustituida por replace.
 			text = text.replace(/a|e|i|o|u/g, function(matched){
-  		return mapObj[matched];
+  			return mapObj[matched];
 			});
 
 			return text;
@@ -133,16 +157,24 @@ function myFunction() {
 
 	//tomamos los datos que se reciban en una etiqueta de html previamente identificada con el metodo getElementById y asignamos ese valor con el metodo value a una variable que definamos como "x"
   var x = document.getElementById("myTextarea").value;
-  //asignamos el retorno de la función encriptar a una variable llamada "enc"
-  var enc = encriptar(x);
+
+  if (x === null ) {
+  	console.log("hola no sirve")
+  	document.getElementById("demo").innerHTML = "No se ha encontrado el mensaje";
+  }
+  else{
+  	  //asignamos el retorno de la función encriptar a una variable llamada "enc"
+  var enc = encript(x);
   //Y finalmente mostramos el contenido del retorno de la función encriptar en una etiqueta con fuente html identificada con la id demo
   document.getElementById("demo").innerHTML = enc;
+  }
+
 }
 
 //Desencriptar
 function myFunction2(){
 
-	function desencriptar(text){
+	function dencript(text){
 
 			
 
@@ -166,7 +198,7 @@ function myFunction2(){
 
 
   var x = document.getElementById("myTextarea").value;
-  denc = desencriptar(x);
+  denc = dencript(x);
   document.getElementById("demo").innerHTML = denc;
 }
 
