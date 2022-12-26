@@ -5,15 +5,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Encriptador de Texto</title>
 
+	<link rel="stylesheet" type="text/css" href="reset.css">
 	<link rel="stylesheet" type="text/css" href="stylesheet.css">
 
-	<style>
-		#myDIV {
-  			width: 500px;
-  			height: 500px;
-  			background-color: lightblue;
-		}
-	</style>
 
 </head>
 <body>
@@ -31,69 +25,73 @@
 		" 	
 		>
 	</header>
-<div class="gallery">
-	<div class="gallery p-2">
-		<h1 class="p-2">
-			<textarea 
-				id="myTextarea" 
-				autocomplete="on"
-				wrap="soft"
-				maxlength="350"
-				placeholder="Escribe tu mensaje" 
-				></textarea>
 
-		</h1>
+	<div class="rows">
+		<div class="columns">
+			<h1 class="p-2">
+				<textarea 
+					id="myTextarea" 
+					autocomplete="on"
+					wrap="soft"
+					maxlength="350"
+					placeholder="Escribe tu mensaje" 
+					></textarea>
+	
+			</h1>
+	
+	
+	
+				<button type="button" onclick="encriptar()" class="btn btn-important">Encriptar</button>
+				
+				<button type="button" onclick="desencriptar()" class="btn btn-second">Desencriptar</button>
+	
+			<div class="row p-1"><svg 
+				xmlns="http://www.w3.org/2000/svg" 
+				width="16" 
+				height="16" 
+				fill="currentColor" 
+				class="bi bi-exclamation-circle-fill" 
+				viewBox="0 0 16 16">
+				  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+			</svg> Solo se aceptan letras minúsculas y sin acentos
+			</div>
 
 
-		<div class="row p-1">
+		</div>
 
-			<button type="button" onclick="encriptar()" class="btn btn-important">Encriptar</button>
+		<div class="columns">
 			
-		</div>
-
-		<div class="row p-1">
-
-			<button type="button" onclick="desencriptar()" class="btn btn-second">Desencriptar</button>
-			
-		</div>
-
-		<div class="row p-1"><svg 
-			xmlns="http://www.w3.org/2000/svg" 
-			width="16" 
-			height="16" 
-			fill="currentColor" 
-			class="bi bi-exclamation-circle-fill" 
-			viewBox="0 0 16 16">
-  			<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
-		</svg> Solo se aceptan letras minúsculas y sin acentos
-		</div>
-
-
-	</div>
-
 	<!-- CUADRO DE SALIDA -->	
 	<div class="p-2" id="salida">
 
-	 <p id="demo">
-	 	<h3 class="text-center" id="titulo-in">Ningun mensaje fue encontrado</h3>
-	 	<p class="text-center" id="frase-in">Ingresa el texto que desees encriptar o desencriptar</p></p>
-	 	<button type="button" onclick="copy()" id="copy" class="circle">
-	 		<svg xmlns="http://www.w3.org/2000/svg" 
-	 			width="16" 
-	 			height="16" 
-	 			fill="currentColor" 
-	 			class="bi bi-clipboard" 
-	 			viewBox="0 0 16 16">
+		<p id="demo">
+			<h3 class="text-center" id="titulo-in">Ningun mensaje fue encontrado</h3>
+			<p class="text-center" id="frase-in">Ingresa el texto que desees encriptar o desencriptar</p></p>
+			<button type="button" onclick="copy()" id="copy" class="circle">
+				<svg xmlns="http://www.w3.org/2000/svg" 
+					width="16" 
+					height="16" 
+					fill="currentColor" 
+					class="bi bi-clipboard" 
+					viewBox="0 0 16 16">
+   
+				 <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"></path>
+				 <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"></path>
+   
+		   </svg>
+	   </button>
+	   <textarea style="display:none;" id="myInput"></textarea>	
+		   
+	   </div>
+			
 
-  			<path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"></path>
-  			<path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"></path>
+		</div>
 
-		</svg>
-	</button>
-	<textarea style="display:none;" id="myInput"></textarea>	
-		
 	</div>
-</div>
+
+
+
+
 
 	<!-- Footer 
 

@@ -2,14 +2,15 @@
 
 html, body, input, button, textarea{
 	font-family: 'DM Sans', sans-serif;
-	margin: 0px 0px 0px 0px;
-	padding: 0px 0px 0px 0px;
+	margin: 0;
+	padding: 0;
 	height: 100%;
 }
 
+
 header{
 	position: absolute;
-	padding-bottom: 150px;
+	padding-bottom: 200px;
 }
 
 footer{
@@ -28,19 +29,20 @@ li{
 	padding: .5em;
 }
 
+
+
 .btn{
-	justify-content: center;
-	margin: 0px 0px 0px 0px;
-	width: 35rem;
-	height: 3rem;
-	border-radius: 1rem;
-	transition: 0.2s all ease-in-out;
+	margin-left: 5px 5px;
+	padding: 10px 100px;
+	border-radius: 50000px;
+	cursor: pointer;
+	transition: all 0.4s;
 }
 
 .circle{
-	position: absolute;
-	top: 54%;
-	left: 93%;
+	position: relative;
+	top: 93%;
+	left: 99%;
 	justify-content: center;
 	margin: 0;
 	width: 2rem;
@@ -142,6 +144,40 @@ textarea::-webkit-scrollbar-thumb {
 }
 .p-4{
 	padding: 8rem;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.columns {
+	float: left;
+	width: 50%;
+	padding: 12px;
+	min-height: 300px;
+}
+
+.rows {
+	padding-top: 50px;
+}
+
+.rows::after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+@media (max-width: 600px) {
+	.btn {
+		width: 100%;
+		margin-bottom: 10px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.columns {
+		width: 100%;
+	}
 }
 
 @media (max-width:500px) {
