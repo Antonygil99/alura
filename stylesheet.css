@@ -10,6 +10,8 @@ html, body, input, button, textarea{
 
 header{
 	position: absolute;
+	margin: 0;
+	left: -30px;
 	padding-bottom: 200px;
 }
 
@@ -42,7 +44,7 @@ li{
 .circle{
 	position: relative;
 	top: 93%;
-	left: 99%;
+	left: 95%;
 	justify-content: center;
 	margin: 0;
 	width: 2rem;
@@ -110,7 +112,7 @@ footer{
 #salida{
 	color: white;
 	margin: 2rem;
-	padding: 3rem;
+	padding: 2rem;
 	height: 50%;
 	background-color: blue;
 	border-radius: 2rem;
@@ -165,6 +167,14 @@ textarea::-webkit-scrollbar-thumb {
 	content: "";
 	display: table;
 	clear: both;
+}
+
+textarea {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    width: 100%;
 }
 
 @media (max-width: 600px) {
