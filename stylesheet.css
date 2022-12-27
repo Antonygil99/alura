@@ -20,10 +20,22 @@ footer{
 }
 
 textarea, textarea:focus{
+	width: 100%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    resize: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    width: 100%;
 	font-size: 40px;
 	border-width: 0px;
 	resize: none;
 	outline: 0 none;
+	flex: 1 1 auto;
+	height: auto;
 
 }
 
@@ -155,10 +167,16 @@ textarea::-webkit-scrollbar-thumb {
 .columns {
 	float: left;
 	width: 50%;
-	padding: 12px;
+	padding: 0px 50px 0px 50px;
 	min-height: 300px;
 }
-
+.columns-2 {
+	justify-content: center;
+	float: left;
+	width: 50%;
+	padding: 0px 100px 0px 100px;
+	min-height: 300px;
+}
 .rows {
 	padding-top: 50px;
 }
@@ -169,13 +187,17 @@ textarea::-webkit-scrollbar-thumb {
 	clear: both;
 }
 
-textarea {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
 
-    width: 100%;
+
+
+@media screen and (max-width: 525px){
+	textarea {
+		height: auto;
+		}
+
 }
+	
+
 
 @media (max-width: 600px) {
 	.btn {

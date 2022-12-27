@@ -64,6 +64,9 @@
 	<!-- CUADRO DE SALIDA -->	
 	<div class="p-2" id="salida">
 
+		<h3 class="text-center" id="titulo-in"></h3>
+		<p class="text-center" id="frase-in"></p>
+
 		<p id="demo">
 			<h3 class="text-center" id="titulo-in">Ningun mensaje fue encontrado</h3>
 			<p class="text-center" id="frase-in">Ingresa el texto que desees encriptar o desencriptar</p></p>
@@ -170,12 +173,14 @@ function myFunction() {
 	}
     
 
-	//tomamos los datos que se reciban en una etiqueta de html previamente identificada con el metodo getElementById y asignamos ese valor con el metodo value a una variable que definamos como "x"
+  //tomamos los datos que se reciban en una etiqueta de html previamente identificada con el metodo getElementById y asignamos ese valor con el metodo value a una variable que definamos como "x"
   var x = document.getElementById("myTextarea").value;
 
-  if (x === null ) {
+  if (!x) {
   	console.log("hola no sirve")
-  	document.getElementById("demo").innerHTML = "No se ha encontrado el mensaje";
+  	document.getElementById("titulo-in").innerHTML = "No se ha encontrado el mensaje";
+	document.getElementById("titulo-in").innerHTML = "ingresa el texto que desees encrptar o desencriptar";
+	
   }
   else{
   	  //asignamos el retorno de la función encriptar a una variable llamada "enc"
@@ -214,9 +219,17 @@ function myFunction2(){
 
 
   var x = document.getElementById("myTextarea").value;
-  denc = dencript(x);
-  document.getElementById("demo").innerHTML = denc;
-  document.getElementById("myInput").innerHTML = denc;
+  if(!x){
+	console.log("hola no sirve")
+  	document.getElementById("titulo-in").innerHTML = "No se ha encontrado el mensaje";
+	  document.getElementById("titulo-in").innerHTML = "No se ha encontrado el mensaje";
+  }
+  else{
+	denc = dencript(x);
+  	document.getElementById("demo").innerHTML = denc;
+  	document.getElementById("myInput").innerHTML = denc;
+  }
+
 }
 
 </script>
